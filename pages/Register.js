@@ -46,12 +46,12 @@ createuser = async() =>
           method: 'POST',
           headers: {
             'Accept': 'application/json',
-            'api-token': "jsontoken",
+            'api-token': config.apiToken,
             'Content-Type': 'application/json'
           },
           body: JSON.stringify({
             "mobile": this.state.mobile,
-            "name": this.state.name +' '+this.state.lastname,
+            "password": this.state.password,
 
           }),
         });

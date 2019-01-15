@@ -18,7 +18,9 @@ constructor(props) {
     this.state = { 
      keylist:"00",
       myturns:[] ,
-      percentage:40
+      percentage:40,
+      inside:0,
+      outSide:0
 
     };
   }
@@ -37,10 +39,10 @@ async componentWillMount()
   {
 
 
- const usertoken = await AsyncStorage.getItem('@MySuperStore:usertoken');
+ const usertoken = await AsyncStorage.getItem('@MySuperStore:tokenuser');
    if (!usertoken) 
    {
-   // this.props.navigation.navigate('Register');
+    this.props.navigation.navigate('Register');
    }
 
 
@@ -51,7 +53,43 @@ async componentWillMount()
 async FetchData ()
   {
 
-    const usertoken = await AsyncStorage.getItem('@MySuperStore:usertoken');
+
+ const tokenuser = await AsyncStorage.getItem('@MySuperStore:tokenuser');
+
+      const response= await  fetch(config.Urlfetch+"currentstate", {
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json',
+            'api-token': config.apiToken,
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            "admission": tokenuser,
+
+          }),
+        });
+
+      if (response.status==200) {
+ 
+       const json = await response.json();
+      
+
+       if (json.status==200) {
+
+           this.setState({inside:json.inside,outSide:json.outside}) ; 
+            
+
+            
+            }
+           
+
+          }
+          else
+          {
+          this.setState({error:"Error From Server"})
+          
+
+          }
 
   }
  componentDidMount = () => {
@@ -96,13 +134,13 @@ _componentFocused = () => {
                     </View>
 
                     <View style={styles.row}>
-                        <Text  style={styles.Textnote}>Inside </Text>
-                        <Text  style={styles.Textnote}>OutSide </Text>
+                        <Text  style={styles.Textnote}>Total Inside </Text>
+                        <Text  style={styles.Textnote}>Total OutSide </Text>
                     </View>
 
                     <View style={styles.row}>
-                        <Text  style={styles.TextnoteValue}> 12 </Text>
-                        <Text  style={styles.TextnoteValue}> 12 </Text>
+                        <Text  style={styles.TextnoteValue}> {this.state.inside} </Text>
+                        <Text  style={styles.TextnoteValue}> {this.state.outSide} </Text>
                     </View>
 
 

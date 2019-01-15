@@ -13,7 +13,8 @@ heightd=Dimensions.get("window").height;
 
 
 export const config = {
-	                   Urlfetch:"http://apps.royanz.com/api/v1/"
+	                     Urlfetch:"http://admission.royanz.com/api/v1/",
+                       apiToken:"eGPMR5EoUSO8SzKSocbedkjJHKKFCTUiDsYLjs0LYJeS8o91t8FS7EqgM8tu4uu0"
 	                  }
 
 
@@ -103,7 +104,8 @@ textname:
             color:"#ffffff",
             textAlign:"center" , 
             fontSize:17  ,
-            width:"100%"
+            width:"100%" ,
+            paddingTop:15
       } ,  
     byscanner:
   
@@ -112,7 +114,8 @@ textname:
              right: 10,
              bottom: 60,
 
-    },  
+    }, 
+    typeRadio:{padding:5} ,
     byticketcode:
   
             {
@@ -147,9 +150,18 @@ TexterrortStyle:
 {
             width:"100%",
             textAlign: 'center' ,
-            color:"#26A69A",
+            color:"#e53935",
             fontSize: 17  ,
 } , 
+
+TextsuccesstStyle:
+
+{
+  width:"100%",
+            textAlign: 'center' ,
+            color:"#1B5E20",
+            fontSize: 17  ,
+},
 
 
 MainContainer :{
