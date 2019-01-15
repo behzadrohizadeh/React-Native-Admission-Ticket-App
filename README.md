@@ -9,8 +9,7 @@ After Download Source Files Go To Your  Path In Command Prompt  And Run :
 ### react-native run-android
 
 ### Setting:
-
-1.Go to path : $path/pages/Styles.js 
+1. Go to path : $path/pages/Styles.js 
 2. Edit :Urlfetch:"yourdomain/api/v1/"   Replace To Your Domain Url 
 
 
@@ -20,7 +19,7 @@ After Download Source Files Go To Your  Path In Command Prompt  And Run :
 ![alt text](https://serving.photos.photobox.com/9125683082c29a161b68fa4fc76fd1f83864bad58eddf7b9406edf0d518616400d303da7.jpg "Qr Page")
 
 
-#Server Side
-##Admin Panel 
+# Server Side
+## Admin Panel 
 https://github.com/behzadrohizadeh/Laravel-React-Native-Admission-Ticket
 
